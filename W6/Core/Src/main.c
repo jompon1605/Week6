@@ -128,7 +128,8 @@ int main(void)
     /* USER CODE BEGIN 3 */
 
 		//1 Khz Loop
-		if (micros() - TimeOutputLoop >= 1000) {
+		if (micros() - TimeOutputLoop >= 1000)
+		{
 			TimeOutputLoop = micros();
 			// #001
 
@@ -136,7 +137,8 @@ int main(void)
 
 		}
 
-		if (ADCUpdateFlag) {
+		if (ADCUpdateFlag)
+		{
 			ADCUpdateFlag = 0;
 			//#002
 		}
@@ -228,7 +230,7 @@ static void MX_ADC1_Init(void)
   */
   sConfig.Channel = ADC_CHANNEL_0;
   sConfig.Rank = 1;
-  sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
+  sConfig.SamplingTime = ADC_SAMPLETIME_480CYCLES;
   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
   {
     Error_Handler();
@@ -286,7 +288,7 @@ static void MX_TIM1_Init(void)
     Error_Handler();
   }
   sConfigOC.OCMode = TIM_OCMODE_PWM1;
-  sConfigOC.Pulse = 0;
+  sConfigOC.Pulse = 5000;
   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
   sConfigOC.OCNPolarity = TIM_OCNPOLARITY_HIGH;
   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
